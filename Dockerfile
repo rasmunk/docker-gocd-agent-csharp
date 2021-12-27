@@ -8,6 +8,7 @@ RUN apt-get update \
     && apt install -y \
     apt-transport-https \
     wget \
+    python3-dev \
     && apt-get update
 
 # Install CSharp
