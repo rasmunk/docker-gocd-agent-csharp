@@ -1,5 +1,4 @@
 FROM gocd/gocd-agent-debian-10:v21.3.0
-
 LABEL MAINTAINER="Rasmus Munk <rasmus.munk@nbi.ku.dk>"
 
 USER root
@@ -17,4 +16,8 @@ RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod
     && rm packages-microsoft-prod.deb
 
 RUN apt-get update \
-  && apt-get install -y dotnet-sdk-6.0
+  && apt-get install -y \
+  dotnet-sdk-3.0 \
+  dotnet-sdk-3.1 \
+  dotnet-sdk-5.0 \
+  dotnet-sdk-6.0
