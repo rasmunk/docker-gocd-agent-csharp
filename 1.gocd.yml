@@ -16,7 +16,7 @@ pipelines:
         git: https://github.com/rasmunk/docker-gocd-agent-csharp.git
         branch: main
     parameters:
-      IMAGE_TAG: edge
+      IMAGE_TAG: ${GO_REVISION_GOCD_CSHARP_IMAGE_GIT}
       DEFAULT_TAG: latest
       IMAGE: gocd-agent-csharp
     template: docker_image
