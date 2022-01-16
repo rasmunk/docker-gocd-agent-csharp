@@ -1,0 +1,22 @@
+environments:
+  gocd_images:
+    environment_variables:
+      DOCKERHUB_PASSWORD: '{{SECRET:[dockerhub][password]}}'
+      DOCKERHUB_USERNAME: '{{SECRET:[dockerhub][username]}}'
+    pipelines:
+      - gocd_csharp_image
+pipelines:
+  gocd_csharp_image:
+    group: gocd_images
+    label_template: "${gocd_csharp_image_git[:8]}"
+    locking: off
+    materials:
+      gocd_csharp_image_git:  # this is the name of material
+        # says about type of material and url at once
+        git: https://github.com/rasmunk/docker-gocd-agent-csharp.git
+        branch: main
+    parameters:
+      COMMIT_TAG:
+      DEFAULT_TAG: latest
+      IMAGE: gocd-agent-csharp
+    template: docker_image
