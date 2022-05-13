@@ -2,9 +2,11 @@ version: '3.7'
 
 services:
   agent:
+    image: ucphhpc/gocd-agent-csharp:$TAG
     build:
       context: ./
       dockerfile: Dockerfile
-    image: ucphhpc/gocd-agent-csharp:${BUILD_TAG}
+      args:
+        TAG: ${TAG}
     env_file:
       - .env

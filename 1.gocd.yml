@@ -1,22 +1,34 @@
 environments:
   docker_image:
-    environment_variables:
-      DOCKERHUB_PASSWORD: '{{SECRET:[dockerhub][password]}}'
-      DOCKERHUB_USERNAME: '{{SECRET:[dockerhub][username]}}'
+    environments:
+      GIT_USER: "{{SECRET:[github][username]}}"
     pipelines:
-      - gocd_csharp_image
+      - gocd-agent-csharp
 pipelines:
-  gocd_csharp_image:
+  gocd-agent-csharp:
     group: docker_image
-    label_template: "${gocd_csharp_image_git[:8]}"
     locking: off
     materials:
-      gocd_csharp_image_git:  # this is the name of material
+      gocd_agent_csharp_git:  # this is the name of material
         # says about type of material and url at once
+        name: gocd-agent-csharp
         git: https://github.com/rasmunk/docker-gocd-agent-csharp.git
         branch: main
+        destination: gocd-agent-csharp
+      publish_docker_git:  # this is the name of material
+        # says about type of material and url at once
+        name: publish-docker-scripts
+        git: https://github.com/rasmunk/publish-docker-scripts.git
+        branch: main
+        username: ${GIT_USER}
+        password: "{{SECRET:[github][access_token]}}"
+        destination: publish-docker-scripts
     parameters:
-      IMAGE_TAG: ${GO_REVISION_GOCD_CSHARP_IMAGE_GIT}
+      IMAGE: docker-gocd-agent-csharp
+      ARGS: ''
+      COMMIT_TAG: GO_REVISION_GOCD_AGENT_CSHARP_GIT
       DEFAULT_TAG: latest
-      IMAGE: gocd-agent-csharp
+      SRC_DIRECTORY: gocd-agent-csharp
+      TEST_DIRECTORY: gocd-agent-csharp
+      PUSH_DIRECTORY: publish-docker-scripts
     template: docker_image
