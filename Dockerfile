@@ -18,7 +18,7 @@ RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod
 
 RUN apt-get update \
   && apt-get install -y \
-  dotnet-sdk-3.0 \
   dotnet-sdk-3.1 \
   dotnet-sdk-5.0 \
-  dotnet-sdk-6.0
+  dotnet-sdk-6.0 \
+  dotnet-sdk-7.0
