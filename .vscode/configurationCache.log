@@ -1,1 +1,0 @@
-{"buildTargets":["all","check","clean","dist","distclean","dockerbuild","dockerclean","dockerpush","init","install","install-dep","installcheck","maintainer-clean","uninstall","uninstallcheck"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

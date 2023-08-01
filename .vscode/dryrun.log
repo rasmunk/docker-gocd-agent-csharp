@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/rasmusmunk/repos/docker-gocd-agent-csharp'
-ln -s defaults.env .env
-docker-compose build 
-make: Leaving directory `/Users/rasmusmunk/repos/docker-gocd-agent-csharp'
- 
