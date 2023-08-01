@@ -1,8 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/rasmusmunk/repos/docker-gocd-agent-csharp'
-docker rmi -f ucphhpc/gocd-agent-csharp:edge 
-docker build -t ucphhpc/gocd-agent-csharp:edge  .
+ln -s defaults.env .env
+docker-compose build 
 make: Leaving directory `/Users/rasmusmunk/repos/docker-gocd-agent-csharp'
  
-make: *** No rule to make target `test', needed by `all'.
-
