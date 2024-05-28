@@ -16,9 +16,9 @@ RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod
     && dpkg -i packages-microsoft-prod.deb \
     && rm packages-microsoft-prod.deb
 
+# https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian
+# https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core
 RUN apt-get update \
-  && apt-get install -y \
-  dotnet-sdk-3.1 \
-  dotnet-sdk-5.0 \
-  dotnet-sdk-6.0 \
-  dotnet-sdk-7.0
+    && apt-get install -y \
+    dotnet-sdk-6.0 \
+    dotnet-sdk-8.0
