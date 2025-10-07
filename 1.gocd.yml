@@ -33,7 +33,7 @@ pipelines:
       TEST_ARGS: ''
       COMMIT_TAG: GO_REVISION_GOCD_AGENT_CSHARP_GIT
       DEFAULT_TAG: latest
-      EXTRA_TAG: v24.5.0
+      EXTRA_TAG: v25.3.0
       SRC_DIRECTORY: gocd-agent-csharp
       TEST_DIRECTORY: gocd-agent-csharp
       PUSH_DIRECTORY: publish-docker-scripts
